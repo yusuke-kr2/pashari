@@ -68,3 +68,4 @@ group :test do
 end
 
 gem "devise", "5.0.4"
+gem "devise-i18n"
