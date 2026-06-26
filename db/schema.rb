@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_25_111444) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_26_140513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -61,6 +61,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_25_111444) do
     t.index ["owner_id"], name: "index_groups_on_owner_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "group_id", null: false
+    t.datetime "taken_at"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.datetime "visible_at"
+    t.index ["group_id"], name: "index_photos_on_group_id"
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
@@ -78,4 +89,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_25_111444) do
   add_foreign_key "group_memberships", "groups"
   add_foreign_key "group_memberships", "users"
   add_foreign_key "groups", "users", column: "owner_id"
+  add_foreign_key "photos", "groups"
+  add_foreign_key "photos", "users"
 end
