@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  group: one
+  taken_at: 2026-06-26 23:05:13
+  visible_at: 2026-06-26 23:05:13
+
+two:
+  user: two
+  group: two
+  taken_at: 2026-06-26 23:05:13
+  visible_at: 2026-06-26 23:05:13
