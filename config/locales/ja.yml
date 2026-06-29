@@ -1,8 +1,31 @@
 ja:
+  activerecord:
+    attributes:
+      group:
+        name: "グループ名"
+        photo_limit: "撮影枚数上限"
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank: "を入力してください"
+            photo_limit:
+              not_an_integer: "は整数で入力してください"
+              greater_than: "は0より大きい値にしてください"
   groups:
     index:
       title: "参加中のグループ"
       empty: "参加中のグループはありません"
+      new_group: "グループ作成"
+    new:
+      title: "グループ作成"
+      name: "グループ名"
+      photo_limit: "撮影枚数上限"
+      photo_limit_hint: "グループ全体で撮影できる枚数です"
+      submit: "作成する"
+    create:
+      success: "グループを作成しました"
   shared:
     flash:
       close: "閉じる"
