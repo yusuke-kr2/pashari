@@ -1,4 +1,8 @@
 ja:
+  groups:
+    index:
+      title: "参加中のグループ"
+      empty: "参加中のグループはありません"
   shared:
     flash:
       close: "閉じる"
