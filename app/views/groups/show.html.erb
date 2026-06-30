@@ -21,5 +21,6 @@
     <% end %>
   </ul>
 
+  <%= link_to t('.take_photo'), new_group_photo_path(@group), class: "btn btn-primary me-2" %>
   <%= link_to t('.back'), groups_path, class: "btn btn-outline-secondary" %>
 </div>
