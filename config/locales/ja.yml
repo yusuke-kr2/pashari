@@ -43,5 +43,8 @@ ja:
       failure: "撮影に失敗しました"
       limit_reached: "撮影枚数の上限に達しました"
   shared:
+    header:
+      groups: "グループ"
+      logout: "ログアウト"
     flash:
       close: "閉じる"
