@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h1><%= @group.name %></h1>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <p class="mb-1">
+        <strong><%= t('.photo_limit') %>:</strong>
+        <%= @group.photo_limit || t('.unlimited') %>
+      </p>
+      <p class="mb-0">
+        <strong><%= t('.owner') %>:</strong>
+        <%= @group.owner.email %>
+      </p>
+    </div>
+  </div>
+
+  <h2 class="h5"><%= t('.members') %></h2>
+  <ul class="list-group mb-3">
+    <% @group.members.each do |member| %>
+      <li class="list-group-item"><%= member.email %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to t('.back'), groups_path, class: "btn btn-outline-secondary" %>
+</div>

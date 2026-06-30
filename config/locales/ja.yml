@@ -24,6 +24,12 @@ ja:
       photo_limit: "撮影枚数上限"
       photo_limit_hint: "グループ全体で撮影できる枚数です"
       submit: "作成する"
+    show:
+      photo_limit: "撮影枚数上限"
+      unlimited: "無制限"
+      owner: "オーナー"
+      members: "メンバー"
+      back: "一覧に戻る"
     create:
       success: "グループを作成しました"
   shared:
