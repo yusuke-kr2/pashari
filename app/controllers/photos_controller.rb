@@ -1,6 +1,11 @@
 class PhotosController < ApplicationController
   before_action :set_group
 
+  def index
+    @developed_photos = @group.photos.visible.order(taken_at: :desc)
+    @developing_photos = @group.photos.developing.order(:visible_at)
+  end
+
   def new
     @remaining = remaining_photos
   end

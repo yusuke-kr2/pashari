@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get "home/index"
   resources :groups, only: [ :index, :show, :new, :create ] do
-    resources :photos, only: [ :new, :create ]
+    resources :photos, only: [ :index, :new, :create ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
