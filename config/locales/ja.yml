@@ -29,9 +29,19 @@ ja:
       unlimited: "無制限"
       owner: "オーナー"
       members: "メンバー"
+      take_photo: "撮影する"
       back: "一覧に戻る"
     create:
       success: "グループを作成しました"
+  photos:
+    new:
+      remaining: "残り枚数"
+      unlimited: "無制限"
+      back: "グループに戻る"
+    create:
+      success: "撮影しました"
+      failure: "撮影に失敗しました"
+      limit_reached: "撮影枚数の上限に達しました"
   shared:
     flash:
       close: "閉じる"
