@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import CameraController from "./camera_controller"
 application.register("camera", CameraController)
+
+import CountdownController from "./countdown_controller"
+application.register("countdown", CountdownController)

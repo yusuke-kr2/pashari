@@ -30,10 +30,18 @@ ja:
       owner: "オーナー"
       members: "メンバー"
       take_photo: "撮影する"
+      view_photos: "写真を見る"
       back: "一覧に戻る"
     create:
       success: "グループを作成しました"
   photos:
+    index:
+      title: "写真"
+      developing: "現像中"
+      developed: "現像済み"
+      remaining_time: "あと%{time}"
+      empty: "まだ写真はありません"
+      back: "グループに戻る"
     new:
       remaining: "残り枚数"
       unlimited: "無制限"
