@@ -1,2 +1,13 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="home-hero">
+  <div class="home-logo">Pashari</div>
+  <p class="home-tagline"><%= t('.tagline') %></p>
+
+  <% if user_signed_in? %>
+    <%= link_to t('.go_groups'), groups_path, class: "btn btn-pashari" %>
+  <% else %>
+    <div class="d-flex flex-column gap-2 align-items-center">
+      <%= link_to t('.login'), new_user_session_path, class: "btn btn-pashari" %>
+      <%= link_to t('.signup'), new_user_registration_path, class: "btn btn-pashari-outline" %>
+    </div>
+  <% end %>
+</div>

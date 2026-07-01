@@ -1,27 +1,41 @@
-<div class="container mt-4">
-  <h1><%= @group.name %></h1>
+<div class="page-content">
+  <h1 class="page-title"><%= @group.name %></h1>
+
+  <div class="d-flex gap-2 mb-4">
+    <%= link_to new_group_photo_path(@group), class: "btn btn-pashari flex-fill text-center" do %>
+      <i class="bi bi-camera"></i> <%= t('.take_photo') %>
+    <% end %>
+    <%= link_to group_photos_path(@group), class: "btn btn-pashari-outline flex-fill text-center" do %>
+      <i class="bi bi-images"></i> <%= t('.view_photos') %>
+    <% end %>
+  </div>
 
   <div class="card mb-3">
     <div class="card-body">
-      <p class="mb-1">
-        <strong><%= t('.photo_limit') %>:</strong>
+      <p class="mb-1" style="font-size: 0.85rem; color: #999;">
+        <i class="bi bi-camera"></i> <%= t('.photo_limit') %>:
         <%= @group.photo_limit || t('.unlimited') %>
       </p>
-      <p class="mb-0">
-        <strong><%= t('.owner') %>:</strong>
+      <p class="mb-0" style="font-size: 0.85rem; color: #999;">
+        <i class="bi bi-person-badge"></i> <%= t('.owner') %>:
         <%= @group.owner.email %>
       </p>
     </div>
   </div>
 
-  <h2 class="h5"><%= t('.members') %></h2>
-  <ul class="list-group mb-3">
+  <h2 style="font-size: 0.9rem; font-weight: 600; color: #666; margin-bottom: 12px;">
+    <i class="bi bi-people"></i> <%= t('.members') %>
+  </h2>
+  <div class="member-list">
     <% @group.members.each do |member| %>
-      <li class="list-group-item"><%= member.email %></li>
+      <div class="member-item">
+        <div class="member-avatar"><i class="bi bi-person"></i></div>
+        <%= member.email %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 
-  <%= link_to t('.take_photo'), new_group_photo_path(@group), class: "btn btn-primary me-2" %>
-  <%= link_to t('.view_photos'), group_photos_path(@group), class: "btn btn-outline-primary me-2" %>
-  <%= link_to t('.back'), groups_path, class: "btn btn-outline-secondary" %>
+  <div class="mt-4">
+    <%= link_to t('.back'), groups_path, class: "btn btn-pashari-outline w-100" %>
+  </div>
 </div>

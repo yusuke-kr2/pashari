@@ -1,16 +1,27 @@
-<div class="container mt-4">
+<div class="page-content">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="mb-0"><%= t('.title') %></h1>
-    <%= link_to t('.new_group'), new_group_path, class: "btn btn-primary" %>
+    <h1 class="page-title mb-0"><%= t('.title') %></h1>
+    <%= link_to new_group_path, class: "btn btn-pashari" do %>
+      <i class="bi bi-plus"></i> <%= t('.new_group') %>
+    <% end %>
   </div>
 
   <% if @groups.any? %>
-    <div class="list-group">
-      <% @groups.each do |group| %>
-        <%= link_to group.name, group_path(group), class: "list-group-item list-group-item-action" %>
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group), class: "group-card" do %>
+        <div class="group-name"><%= group.name %></div>
+        <div class="group-meta">
+          <i class="bi bi-people"></i> <%= group.members.count %>
+          <% if group.photo_limit %>
+            &nbsp;&middot;&nbsp;<i class="bi bi-camera"></i> <%= group.photos.count %>/<%= group.photo_limit %>
+          <% end %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   <% else %>
-    <p class="text-muted"><%= t('.empty') %></p>
+    <div class="empty-state">
+      <div class="empty-icon"><i class="bi bi-people"></i></div>
+      <p class="empty-text"><%= t('.empty') %></p>
+    </div>
   <% end %>
 </div>

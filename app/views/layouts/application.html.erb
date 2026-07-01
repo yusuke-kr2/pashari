@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Myapp" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= content_for(:title) || "Pashari" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Myapp">
+    <meta name="application-name" content="Pashari">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -23,11 +23,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
-    <%= render 'shared/header' %>
-    <div class="container">
-      <%= render 'shared/flash' %>
-    </div>
+  <body class="<%= 'camera-page' if content_for?(:camera_mode) %>">
+    <% unless content_for?(:camera_mode) %>
+      <div class="app-header">
+        <span class="app-title">Pashari</span>
+      </div>
+    <% end %>
+
+    <%= render 'shared/flash' %>
     <%= yield %>
+
+    <% if user_signed_in? && !content_for?(:camera_mode) %>
+      <%= render 'shared/tab_bar' %>
+    <% end %>
   </body>
 </html>

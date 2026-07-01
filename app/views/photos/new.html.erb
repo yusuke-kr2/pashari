@@ -1,24 +1,24 @@
-<div class="container mt-4" data-controller="camera" data-camera-url-value="<%= group_photos_path(@group) %>" data-camera-token-value="<%= form_authenticity_token %>">
-  <div class="text-center">
-    <p class="mb-2">
-      <strong><%= t('.remaining') %>:</strong>
-      <%= @remaining == Float::INFINITY ? t('.unlimited') : @remaining %>
-    </p>
+<% content_for :camera_mode, true %>
 
-    <div class="position-relative d-inline-block">
-      <video data-camera-target="video" autoplay playsinline class="w-100 rounded" style="max-height: 70vh;"></video>
-    </div>
+<div data-controller="camera" data-camera-url-value="<%= group_photos_path(@group) %>" data-camera-token-value="<%= form_authenticity_token %>" style="height: 100dvh; display: flex; flex-direction: column;">
+  <div class="text-center remaining-count">
+    <%= t('.remaining') %>:
+    <%= @remaining == Float::INFINITY ? t('.unlimited') : @remaining %>
+  </div>
 
-    <canvas data-camera-target="canvas" class="d-none"></canvas>
+  <div style="flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+    <video data-camera-target="video" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+  </div>
 
-    <div class="mt-3">
-      <button data-action="click->camera#capture" class="btn btn-danger btn-lg rounded-circle" style="width: 72px; height: 72px;" data-camera-target="shutter">
-        📷
-      </button>
-    </div>
+  <canvas data-camera-target="canvas" class="d-none"></canvas>
 
-    <div class="mt-2">
-      <%= link_to t('.back'), group_path(@group), class: "btn btn-outline-secondary btn-sm" %>
-    </div>
+  <div style="padding: 20px 0 32px; display: flex; justify-content: center; align-items: center; gap: 40px;">
+    <%= link_to group_path(@group), style: "color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem;" do %>
+      <i class="bi bi-arrow-left" style="font-size: 1.2rem;"></i>
+    <% end %>
+
+    <button data-action="click->camera#capture" class="shutter-btn" data-camera-target="shutter"></button>
+
+    <div style="width: 24px;"></div>
   </div>
 </div>
