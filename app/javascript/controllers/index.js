@@ -12,3 +12,6 @@ application.register("camera", CameraController)
 
 import CountdownController from "./countdown_controller"
 application.register("countdown", CountdownController)
+
+import ClipboardController from "./clipboard_controller"
+application.register("clipboard", ClipboardController)
