@@ -1,9 +1,9 @@
-<div class="container mt-4">
-  <h1><%= t('.title') %></h1>
+<div class="page-content">
+  <h1 class="page-title"><%= t('.title') %></h1>
 
-  <%= form_with(model: @group, class: "mt-3") do |f| %>
+  <%= form_with(model: @group, class: "mt-2") do |f| %>
     <% if @group.errors.any? %>
-      <div class="alert alert-danger">
+      <div class="alert alert-danger" style="border-radius: 10px; font-size: 0.85rem;">
         <ul class="mb-0">
           <% @group.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -17,12 +17,12 @@
       <%= f.text_field :name, class: "form-control" %>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-4">
       <%= f.label :photo_limit, t('.photo_limit'), class: "form-label" %>
       <%= f.number_field :photo_limit, class: "form-control", value: @group.photo_limit || 27, min: 1 %>
-      <div class="form-text"><%= t('.photo_limit_hint') %></div>
+      <div class="form-text" style="font-size: 0.8rem;"><%= t('.photo_limit_hint') %></div>
     </div>
 
-    <%= f.submit t('.submit'), class: "btn btn-primary w-100" %>
+    <%= f.submit t('.submit'), class: "btn btn-pashari w-100" %>
   <% end %>
 </div>

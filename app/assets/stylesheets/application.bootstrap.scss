@@ -1,2 +1,368 @@
+// Pashari カスタムテーマ
+$body-bg: #FAF7F2;
+$body-color: #333;
+$primary: #C4704B;
+$font-family-sans-serif: "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+$border-radius: 12px;
+$border-radius-lg: 16px;
+$card-border-width: 0;
+$card-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+// 全体
+body {
+  padding-bottom: 72px;
+  min-height: 100dvh;
+}
+
+// ヘッダー
+.app-header {
+  background: #FAF7F2;
+  border-bottom: 1px solid #EDE8E0;
+  padding: 12px 16px;
+  text-align: center;
+
+  .app-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.05em;
+  }
+}
+
+// 下部タブバー
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #EDE8E0;
+  display: flex;
+  justify-content: space-around;
+  padding: 6px 0;
+  padding-bottom: calc(6px + env(safe-area-inset-bottom));
+  z-index: 1000;
+
+  .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.65rem;
+    padding: 4px 12px;
+    transition: color 0.15s;
+
+    i {
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+    }
+
+    &.active {
+      color: $primary;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+// ページコンテンツ
+.page-content {
+  padding: 20px 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+// カード
+.card {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  border: none;
+}
+
+// グループカード
+.group-card {
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+
+  .group-name {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .group-meta {
+    font-size: 0.8rem;
+    color: #999;
+  }
+}
+
+// ボタン
+.btn-pashari {
+  background: $primary;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: darken($primary, 8%);
+    color: #fff;
+  }
+}
+
+.btn-pashari-outline {
+  background: transparent;
+  color: $primary;
+  border: 1.5px solid $primary;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: $primary;
+    color: #fff;
+  }
+}
+
+// フォーム
+.form-control {
+  border: 1.5px solid #E0DBD3;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+  }
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #666;
+}
+
+// 撮影ページ
+.camera-page {
+  background: #1a1a1a;
+  min-height: 100dvh;
+  padding-bottom: 0;
+
+  .remaining-count {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    padding: 16px 0 8px;
+  }
+
+  .shutter-btn {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.1s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    &:active {
+      transform: scale(0.92);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+}
+
+// 現像中カード
+.developing-card {
+  background: #2a2520;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .developing-icon {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  .developing-time {
+    font-size: 0.75rem;
+  }
+}
+
+// 写真グリッド
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.photo-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .photo-info {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    color: #999;
+  }
+}
+
+// フラッシュメッセージ
+.flash-message {
+  margin: 12px 16px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+}
+
+// ホームページ
+.home-hero {
+  text-align: center;
+  padding: 60px 20px;
+
+  .home-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .home-tagline {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 32px;
+  }
+}
+
+// devise
+.auth-page {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .auth-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .auth-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// メンバーリスト
+.member-list {
+  .member-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #F0ECE5;
+    font-size: 0.9rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .member-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #E8E2D9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-size: 0.75rem;
+      color: #999;
+    }
+  }
+}
+
+// 空状態
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #bbb;
+
+  .empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+
+  .empty-text {
+    font-size: 0.9rem;
+  }
+}

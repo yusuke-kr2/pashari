@@ -13,11 +13,19 @@ ja:
             photo_limit:
               not_an_integer: "は整数で入力してください"
               greater_than: "は0より大きい値にしてください"
+  devise:
+    sessions:
+      new:
+        login: "ログイン"
+    registrations:
+      new:
+        signup: "新規登録"
+        minimum_password_length: "%{count}文字以上"
   groups:
     index:
-      title: "参加中のグループ"
+      title: "グループ"
       empty: "参加中のグループはありません"
-      new_group: "グループ作成"
+      new_group: "作成"
     new:
       title: "グループ作成"
       name: "グループ名"
@@ -34,6 +42,12 @@ ja:
       back: "一覧に戻る"
     create:
       success: "グループを作成しました"
+  home:
+    index:
+      tagline: "撮って、待って、届く写真体験"
+      go_groups: "グループ一覧へ"
+      login: "ログイン"
+      signup: "新規登録"
   photos:
     index:
       title: "写真"
@@ -43,7 +57,7 @@ ja:
       empty: "まだ写真はありません"
       back: "グループに戻る"
     new:
-      remaining: "残り枚数"
+      remaining: "残り"
       unlimited: "無制限"
       back: "グループに戻る"
     create:
@@ -53,6 +67,10 @@ ja:
   shared:
     header:
       groups: "グループ"
+      logout: "ログアウト"
+    tab_bar:
+      groups: "グループ"
+      home: "ホーム"
       logout: "ログアウト"
     flash:
       close: "閉じる"
