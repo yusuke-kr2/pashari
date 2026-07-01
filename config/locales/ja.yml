@@ -76,9 +76,14 @@ ja:
       logout: "ログアウト"
     tab_bar:
       groups: "グループ"
+      scan: "スキャン"
       home: "ホーム"
-      logout: "ログアウト"
     flash:
       close: "閉じる"
+  qr_scanner:
+    show:
+      title: "QRコードスキャン"
+      instruction: "招待QRコードをカメラにかざしてください"
+      back: "戻る"
   ogp:
     description: "撮って、待って、届く。写ルンです風カメラアプリ"

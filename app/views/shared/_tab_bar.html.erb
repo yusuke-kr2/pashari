@@ -4,13 +4,13 @@
     <span><%= t('shared.tab_bar.groups') %></span>
   <% end %>
 
+  <%= link_to qr_scanner_path, class: "tab-item #{'active' if controller_name == 'qr_scanner'}" do %>
+    <i class="bi bi-qr-code-scan"></i>
+    <span><%= t('shared.tab_bar.scan') %></span>
+  <% end %>
+
   <%= link_to root_path, class: "tab-item #{'active' if controller_name == 'home'}" do %>
     <i class="bi bi-house"></i>
     <span><%= t('shared.tab_bar.home') %></span>
-  <% end %>
-
-  <%= button_to destroy_user_session_path, method: :delete, class: "tab-item", form: { style: "display: contents;" } do %>
-    <i class="bi bi-box-arrow-right"></i>
-    <span><%= t('shared.tab_bar.logout') %></span>
   <% end %>
 </nav>
