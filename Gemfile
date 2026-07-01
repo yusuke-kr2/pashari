@@ -69,3 +69,4 @@ end
 
 gem "devise", "5.0.4"
 gem "devise-i18n"
+gem "rqrcode"

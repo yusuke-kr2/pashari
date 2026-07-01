@@ -15,3 +15,6 @@ application.register("countdown", CountdownController)
 
 import ClipboardController from "./clipboard_controller"
 application.register("clipboard", ClipboardController)
+
+import QrScannerController from "./qr_scanner_controller"
+application.register("qr-scanner", QrScannerController)
