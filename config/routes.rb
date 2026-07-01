@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :groups, only: [ :index, :show, :new, :create ] do
     resources :photos, only: [ :index, :new, :create ]
   end
+  get "invites/:token", to: "invites#show", as: :invite
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

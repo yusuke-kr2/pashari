@@ -7,4 +7,12 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
   validates :photo_limit, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
+
+  before_create :generate_invite_token
+
+  private
+
+  def generate_invite_token
+    self.invite_token ||= SecureRandom.urlsafe_base64(16)
+  end
 end

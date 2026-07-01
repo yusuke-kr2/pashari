@@ -37,11 +37,17 @@ ja:
       unlimited: "無制限"
       owner: "オーナー"
       members: "メンバー"
+      invite_link: "招待リンク"
+      copy_link: "コピー"
       take_photo: "撮影する"
       view_photos: "写真を見る"
       back: "一覧に戻る"
     create:
       success: "グループを作成しました"
+  invites:
+    show:
+      success: "%{group}に参加しました"
+      already_member: "すでにこのグループに参加しています"
   home:
     index:
       tagline: "撮って、待って、届く写真体験"
