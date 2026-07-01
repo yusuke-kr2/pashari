@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@esbuild/darwin-arm64@0.28.1":
+"@esbuild/linux-arm64@0.28.1":
   version "0.28.1"
-  resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.28.1.tgz"
-  integrity sha512-TZbWkQY7kvTAXbXUT7uVACR5cMHsDiSz9z7ZKAX/RTq/WJEk3QyRr0wZpNhBDX+/0CtdqUIJlOiodQcta6tY3Q==
+  resolved "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.28.1.tgz"
+  integrity sha512-yHs+0uc8+nvEAfAfxrWQKK5peSNzBc4PegcMO0EJ2hT71uA7vB8Ihg2e77R2P7SG5uYjPbHlLLmve4LLLRCf0g==
 
 "@hotwired/stimulus@^3.2.2":
   version "3.2.2"
