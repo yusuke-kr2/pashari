@@ -9,6 +9,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : t('ogp.description') %>">
+    <meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : 'Pashari' %>">
+    <meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : t('ogp.description') %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:image" content="<%= asset_url('ogp.png') rescue image_url('ogp.png') rescue '' %>">
+    <meta property="og:site_name" content="Pashari">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : 'Pashari' %>">
+    <meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : t('ogp.description') %>">
+    <meta name="twitter:image" content="<%= asset_url('ogp.png') rescue image_url('ogp.png') rescue '' %>">
+
     <%= yield :head %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>

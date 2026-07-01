@@ -80,3 +80,5 @@ ja:
       logout: "ログアウト"
     flash:
       close: "閉じる"
+  ogp:
+    description: "撮って、待って、届く。写ルンです風カメラアプリ"
