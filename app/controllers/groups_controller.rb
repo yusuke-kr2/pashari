@@ -22,6 +22,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    @group = current_user.owned_groups.find(params[:id])
+    @group.destroy!
+    redirect_to groups_path, notice: t(".success")
+  end
+
   private
 
   def group_params
