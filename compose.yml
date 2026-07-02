@@ -27,6 +27,7 @@ services:
       - node_modules:/myapp/node_modules
     environment:
       TZ: Asia/Tokyo
+      DEVELOPING_PERIOD_SECONDS: 10
     ports:
       - "3000:3000"
     depends_on:
