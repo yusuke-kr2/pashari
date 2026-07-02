@@ -56,4 +56,12 @@
   <div class="mt-4">
     <%= link_to t('.back'), groups_path, class: "btn btn-pashari-outline w-100" %>
   </div>
+
+  <div class="mt-3">
+    <% if @group.owner == current_user %>
+      <%= button_to t('.delete_group'), group_path(@group), method: :delete, class: "btn btn-outline-danger w-100", form: { data: { turbo_confirm: t('.confirm_delete') } } %>
+    <% else %>
+      <%= button_to t('.leave_group'), group_membership_path(@group), method: :delete, class: "btn btn-outline-danger w-100", form: { data: { turbo_confirm: t('.confirm_leave') } } %>
+    <% end %>
+  </div>
 </div>

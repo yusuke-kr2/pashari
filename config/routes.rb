@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   get "home/index"
-  resources :groups, only: [ :index, :show, :new, :create ] do
+  resources :groups, only: [ :index, :show, :new, :create, :destroy ] do
     resources :photos, only: [ :index, :new, :create ]
+    resource :membership, only: [ :destroy ], controller: "group_memberships"
   end
   get "invites/:token", to: "invites#show", as: :invite
   get "scan", to: "qr_scanner#show", as: :qr_scanner

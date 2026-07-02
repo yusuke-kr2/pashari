@@ -42,8 +42,18 @@ ja:
       take_photo: "撮影する"
       view_photos: "写真を見る"
       back: "一覧に戻る"
+      delete_group: "グループを削除"
+      confirm_delete: "本当にこのグループを削除しますか？写真もすべて削除されます。"
+      leave_group: "グループを退出"
+      confirm_leave: "本当にこのグループを退出しますか？"
     create:
       success: "グループを作成しました"
+    destroy:
+      success: "グループを削除しました"
+  group_memberships:
+    destroy:
+      success: "%{group}を退出しました"
+      owner_cannot_leave: "オーナーはグループを退出できません"
   invites:
     show:
       success: "%{group}に参加しました"
