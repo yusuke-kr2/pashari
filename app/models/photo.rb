@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-  DEVELOPING_PERIOD = 24.hours
+  DEVELOPING_PERIOD = ENV.fetch("DEVELOPING_PERIOD_SECONDS", 86400).to_i.seconds
 
   belongs_to :user
   belongs_to :group
