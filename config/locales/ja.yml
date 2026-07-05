@@ -87,9 +87,21 @@ ja:
     tab_bar:
       groups: "グループ"
       scan: "スキャン"
-      home: "ホーム"
+      profile: "マイページ"
     flash:
       close: "閉じる"
+  profile:
+    show:
+      title: "マイページ"
+      groups_count:
+        one: "%{count}グループ"
+        other: "%{count}グループ"
+      photos_count:
+        one: "%{count}枚撮影"
+        other: "%{count}枚撮影"
+      joined_groups: "参加中のグループ"
+      no_groups: "参加中のグループはありません"
+      logout: "ログアウト"
   qr_scanner:
     show:
       title: "QRコードスキャン"
