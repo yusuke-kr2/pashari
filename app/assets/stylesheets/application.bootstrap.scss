@@ -351,6 +351,12 @@ body {
   }
 }
 
+// Turboプログレスバー
+.turbo-progress-bar {
+  background: $primary;
+  height: 3px;
+}
+
 // 空状態
 .empty-state {
   text-align: center;
