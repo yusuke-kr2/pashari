@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "invites/:token", to: "invites#show", as: :invite
   get "scan", to: "qr_scanner#show", as: :qr_scanner
   get "profile", to: "profile#show", as: :profile
+  get "terms", to: "static_pages#terms", as: :terms
+  get "privacy", to: "static_pages#privacy", as: :privacy
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
