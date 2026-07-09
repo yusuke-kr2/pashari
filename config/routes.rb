@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   get "home/index"
   resources :groups, only: [ :index, :show, :new, :create, :destroy ] do
-    resources :photos, only: [ :index, :new, :create ]
+    resources :photos, only: [ :index, :new, :create ] do
+      get :download, on: :member
+    end
     resource :membership, only: [ :destroy ], controller: "group_memberships"
   end
   get "invites/:token", to: "invites#show", as: :invite

@@ -27,9 +27,14 @@
       <% @developed_photos.each do |photo| %>
         <div class="photo-card">
           <%= image_tag photo.image if photo.image.attached? %>
-          <div class="photo-info">
-            <%= photo.user.email %><br>
-            <%= l(photo.taken_at, format: :short) if photo.taken_at %>
+          <div class="photo-info d-flex justify-content-between align-items-center">
+            <div>
+              <%= photo.user.email %><br>
+              <%= l(photo.taken_at, format: :short) if photo.taken_at %>
+            </div>
+            <%= link_to download_group_photo_path(@group, photo), style: "color: #999;" do %>
+              <i class="bi bi-download"></i>
+            <% end %>
           </div>
         </div>
       <% end %>
