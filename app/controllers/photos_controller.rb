@@ -6,6 +6,11 @@ class PhotosController < ApplicationController
     @developing_photos = @group.photos.developing.order(:visible_at)
   end
 
+  def download
+    @photo = @group.photos.visible.find(params[:id])
+    redirect_to rails_blob_path(@photo.image, disposition: "attachment")
+  end
+
   def new
     @remaining = remaining_photos
   end
