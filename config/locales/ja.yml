@@ -1,4 +1,6 @@
 ja:
+  common:
+    back: "戻る"
   activerecord:
     attributes:
       group:
