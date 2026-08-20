@@ -26,12 +26,21 @@ body {
   border-bottom: 1px solid #EDE8E0;
   padding: 12px 16px;
   text-align: center;
+  position: relative;
 
   .app-title {
     font-size: 1.2rem;
     font-weight: 700;
     color: #333;
     letter-spacing: 0.05em;
+  }
+
+  .app-header-logout {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
   }
 }
 
