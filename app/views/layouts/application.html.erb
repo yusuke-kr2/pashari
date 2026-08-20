@@ -38,9 +38,7 @@
 
   <body class="<%= 'camera-page' if content_for?(:camera_mode) %>">
     <% unless content_for?(:camera_mode) %>
-      <div class="app-header">
-        <span class="app-title">Pashari</span>
-      </div>
+      <%= render 'shared/header' %>
     <% end %>
 
     <%= render 'shared/flash' %>
