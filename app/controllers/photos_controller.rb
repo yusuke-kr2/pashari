@@ -1,3 +1,5 @@
+require "zip"
+
 class PhotosController < ApplicationController
   before_action :set_group
 
@@ -9,6 +11,25 @@ class PhotosController < ApplicationController
   def download
     @photo = @group.photos.visible.find(params[:id])
     redirect_to rails_blob_path(@photo.image, disposition: "attachment")
+  end
+
+  def download_all
+    photos = @group.photos.visible.with_attached_image
+    return redirect_to group_photos_path(@group), alert: t(".no_photos") if photos.empty?
+
+    zip_data = Zip::OutputStream.write_buffer do |zip|
+      photos.each_with_index do |photo, i|
+        ext = File.extname(photo.image.filename.to_s).presence || ".jpg"
+        filename = "photo_#{i + 1}#{ext}"
+        zip.put_next_entry(filename)
+        zip.write(photo.image.download)
+      end
+    end
+
+    send_data zip_data.string,
+      filename: "#{@group.name}_photos.zip",
+      type: "application/zip",
+      disposition: "attachment"
   end
 
   def new

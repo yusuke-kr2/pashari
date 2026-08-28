@@ -76,6 +76,9 @@ ja:
       remaining_time: "あと%{time}"
       empty: "まだ写真はありません"
       back: "グループに戻る"
+      download_all: "まとめてダウンロード"
+    download_all:
+      no_photos: "ダウンロードできる写真がありません"
     new:
       remaining: "残り"
       unlimited: "無制限"

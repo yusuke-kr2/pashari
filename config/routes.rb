@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :groups, only: [ :index, :show, :new, :create, :destroy ] do
     resources :photos, only: [ :index, :new, :create ] do
       get :download, on: :member
+      get :download_all, on: :collection
     end
     resource :membership, only: [ :destroy ], controller: "group_memberships"
   end
