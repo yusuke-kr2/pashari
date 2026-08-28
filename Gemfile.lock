@@ -468,6 +468,7 @@ DEPENDENCIES
   rqrcode
   rspec-rails
   rubocop-rails-omakase
+  rubyzip
   selenium-webdriver
   solid_cable
   solid_cache
