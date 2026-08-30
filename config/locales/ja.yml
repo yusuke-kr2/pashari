@@ -3,6 +3,8 @@ ja:
     back: "戻る"
   activerecord:
     attributes:
+      user:
+        name: "ユーザー名"
       group:
         name: "グループ名"
         photo_limit: "撮影枚数上限"
