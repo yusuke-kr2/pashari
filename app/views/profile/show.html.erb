@@ -47,4 +47,8 @@
   <div class="mt-4">
     <%= button_to t('.logout'), destroy_user_session_path, method: :delete, class: "btn btn-outline-danger w-100" %>
   </div>
+
+  <div class="mt-2">
+    <%= button_to t('.withdraw'), registration_path, method: :delete, class: "btn btn-link w-100 text-danger", style: "font-size: 0.8rem;", data: { turbo_confirm: t('.confirm_withdraw') } %>
+  </div>
 </div>
