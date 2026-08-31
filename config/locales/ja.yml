@@ -70,6 +70,10 @@ ja:
       signup: "新規登録"
       terms: "利用規約"
       privacy: "プライバシーポリシー"
+  users:
+    registrations:
+      destroy:
+        success: "退会しました。またのご利用をお待ちしています。"
   photos:
     index:
       title: "写真"
@@ -111,6 +115,8 @@ ja:
       joined_groups: "参加中のグループ"
       no_groups: "参加中のグループはありません"
       logout: "ログアウト"
+      withdraw: "退会する"
+      confirm_withdraw: "本当に退会しますか？アカウントと写真がすべて削除されます。"
   qr_scanner:
     show:
       title: "QRコードスキャン"
