@@ -18,3 +18,6 @@ application.register("clipboard", ClipboardController)
 
 import QrScannerController from "./qr_scanner_controller"
 application.register("qr-scanner", QrScannerController)
+
+import PhotoViewerController from "./photo_viewer_controller"
+application.register("photoviewer", PhotoViewerController)

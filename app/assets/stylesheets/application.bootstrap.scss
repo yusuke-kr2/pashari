@@ -272,6 +272,15 @@ body {
   }
 }
 
+// 写真モーダル
+[data-photoviewer-target="modal"] {
+  display: none;
+
+  &.active {
+    display: flex;
+  }
+}
+
 // フラッシュメッセージ
 .flash-message {
   margin: 12px 16px;
