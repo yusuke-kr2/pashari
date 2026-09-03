@@ -46,12 +46,19 @@ ja:
       take_photo: "撮影する"
       view_photos: "写真を見る"
       back: "一覧に戻る"
+      edit_group: "グループを編集"
       delete_group: "グループを削除"
       confirm_delete: "本当にこのグループを削除しますか？写真もすべて削除されます。"
       leave_group: "グループを退出"
       confirm_leave: "本当にこのグループを退出しますか？"
     create:
       success: "グループを作成しました"
+    edit:
+      title: "グループ編集"
+      submit: "更新する"
+      back: "戻る"
+    update:
+      success: "グループを更新しました"
     destroy:
       success: "グループを削除しました"
   group_memberships:

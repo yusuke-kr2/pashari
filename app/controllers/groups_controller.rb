@@ -22,6 +22,19 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+    @group = current_user.owned_groups.find(params[:id])
+  end
+
+  def update
+    @group = current_user.owned_groups.find(params[:id])
+    if @group.update(group_params)
+      redirect_to group_path(@group), notice: t(".success")
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @group = current_user.owned_groups.find(params[:id])
     @group.destroy!

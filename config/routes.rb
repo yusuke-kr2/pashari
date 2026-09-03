@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
   get "home/index"
-  resources :groups, only: [ :index, :show, :new, :create, :destroy ] do
+  resources :groups, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do
     resources :photos, only: [ :index, :new, :create ] do
       get :download, on: :member
       get :download_all, on: :collection
