@@ -2,8 +2,11 @@
 
 <div data-controller="camera" data-camera-url-value="<%= group_photos_path(@group) %>" data-camera-token-value="<%= form_authenticity_token %>" style="height: 100dvh; display: flex; flex-direction: column;">
   <div class="text-center remaining-count">
-    <%= t('.remaining') %>:
-    <%= @remaining == Float::INFINITY ? t('.unlimited') : @remaining %>
+    <% if @group.photo_limit %>
+      <%= @taken %> / <%= @group.photo_limit %>
+    <% else %>
+      <%= @taken %>
+    <% end %>
   </div>
 
   <div style="flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden;">

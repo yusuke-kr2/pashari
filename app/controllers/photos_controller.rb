@@ -34,6 +34,7 @@ class PhotosController < ApplicationController
 
   def new
     @remaining = remaining_photos
+    @taken = @group.photos.count
   end
 
   def create
