@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
     resource :membership, only: [ :destroy ], controller: "group_memberships"
   end
+  resource :push_subscription, only: [ :create, :destroy ]
   get "invites/:token", to: "invites#show", as: :invite
   get "scan", to: "qr_scanner#show", as: :qr_scanner
   get "profile", to: "profile#show", as: :profile
