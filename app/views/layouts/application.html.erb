@@ -36,7 +36,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body class="<%= 'camera-page' if content_for?(:camera_mode) %>">
+  <body class="<%= 'camera-page' if content_for?(:camera_mode) %>"
+        <% if user_signed_in? %>
+          data-controller="push-notification"
+          data-push-notification-vapid-public-key-value="<%= Rails.application.credentials.dig(:webpush, :vapid_public_key) %>"
+        <% end %>>
     <% unless content_for?(:camera_mode) %>
       <%= render 'shared/header' %>
     <% end %>

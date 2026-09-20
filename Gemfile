@@ -77,3 +77,4 @@ gem "devise-i18n"
 gem "rqrcode"
 gem "aws-sdk-s3", require: false
 gem "rubyzip"
+gem "webpush"

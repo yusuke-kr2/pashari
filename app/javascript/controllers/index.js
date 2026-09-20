@@ -21,3 +21,6 @@ application.register("qr-scanner", QrScannerController)
 
 import PhotoViewerController from "./photo_viewer_controller"
 application.register("photoviewer", PhotoViewerController)
+
+import PushNotificationController from "./push_notification_controller"
+application.register("push-notification", PushNotificationController)

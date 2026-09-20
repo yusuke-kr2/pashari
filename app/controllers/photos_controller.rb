@@ -47,6 +47,7 @@ class PhotosController < ApplicationController
     @photo.image.attach(params[:image])
 
     if @photo.save
+      schedule_development_notification if remaining_photos <= 0
       redirect_to new_group_photo_path(@group), notice: t(".success")
     else
       redirect_to new_group_photo_path(@group), alert: t(".failure")
@@ -62,5 +63,10 @@ class PhotosController < ApplicationController
   def remaining_photos
     return Float::INFINITY unless @group.photo_limit
     @group.photo_limit - @group.photos.count
+  end
+
+  def schedule_development_notification
+    visible_at = @photo.visible_at
+    DevelopmentCompleteJob.set(wait_until: visible_at).perform_later(@group.id)
   end
 end
