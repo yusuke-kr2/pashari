@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_20_141939) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_30_104038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -63,6 +63,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_20_141939) do
     t.index ["owner_id"], name: "index_groups_on_owner_id"
   end
 
+  create_table "photo_comments", force: :cascade do |t|
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.bigint "photo_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["photo_id"], name: "index_photo_comments_on_photo_id"
+    t.index ["user_id"], name: "index_photo_comments_on_user_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.bigint "group_id", null: false
@@ -102,6 +112,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_20_141939) do
   add_foreign_key "group_memberships", "groups"
   add_foreign_key "group_memberships", "users"
   add_foreign_key "groups", "users", column: "owner_id"
+  add_foreign_key "photo_comments", "photos"
+  add_foreign_key "photo_comments", "users"
   add_foreign_key "photos", "groups"
   add_foreign_key "photos", "users"
   add_foreign_key "push_subscriptions", "users"

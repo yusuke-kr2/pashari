@@ -90,6 +90,13 @@ ja:
       empty: "まだ写真はありません"
       back: "グループに戻る"
       download_all: "まとめてダウンロード"
+    show:
+      comments: "コメント"
+      no_comments: "まだコメントはありません"
+      placeholder: "コメントを入力..."
+      submit: "送信"
+      confirm_delete: "このコメントを削除しますか？"
+      back: "アルバムに戻る"
     download_all:
       no_photos: "ダウンロードできる写真がありません"
     new:
@@ -100,6 +107,10 @@ ja:
       success: "撮影しました"
       failure: "撮影に失敗しました"
       limit_reached: "撮影枚数の上限に達しました"
+  photo_comments:
+    create:
+      success: "コメントしました"
+      failure: "コメントの投稿に失敗しました"
   shared:
     header:
       groups: "グループ"

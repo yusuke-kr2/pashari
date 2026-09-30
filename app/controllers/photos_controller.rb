@@ -4,8 +4,14 @@ class PhotosController < ApplicationController
   before_action :set_group
 
   def index
-    @developed_photos = @group.photos.visible.order(taken_at: :desc)
+    @developed_photos = @group.photos.visible.includes(:user, :photo_comments).order(taken_at: :desc)
     @developing_photos = @group.photos.developing.order(:visible_at)
+  end
+
+  def show
+    @photo = @group.photos.visible.find(params[:id])
+    @comments = @photo.photo_comments.includes(:user).order(created_at: :asc)
+    @comment = PhotoComment.new
   end
 
   def download

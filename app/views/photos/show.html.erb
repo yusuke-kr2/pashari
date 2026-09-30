@@ -1,0 +1,58 @@
+<div class="page-content">
+  <div class="photo-detail-image">
+    <%= image_tag @photo.image if @photo.image.attached? %>
+  </div>
+
+  <div class="photo-detail-meta">
+    <span><%= @photo.user.name %></span>
+    <span><%= l(@photo.taken_at, format: :short) if @photo.taken_at %></span>
+    <%= link_to download_group_photo_path(@group, @photo), class: "photo-detail-download" do %>
+      <i class="bi bi-download"></i>
+    <% end %>
+  </div>
+
+  <%# コメント一覧 %>
+  <div class="comments-section">
+    <h2 class="comments-title"><i class="bi bi-chat"></i> <%= t('.comments') %></h2>
+
+    <% if @comments.any? %>
+      <div class="comment-list">
+        <% @comments.each do |comment| %>
+          <div class="comment-item">
+            <div class="comment-avatar"><i class="bi bi-person"></i></div>
+            <div class="comment-body">
+              <span class="comment-user"><%= comment.user.name %></span>
+              <p class="comment-text"><%= comment.body %></p>
+            </div>
+            <% if comment.user == current_user %>
+              <%= button_to group_photo_photo_comment_path(@group, @photo, comment),
+                    method: :delete,
+                    class: "comment-delete",
+                    form: { data: { turbo_confirm: t('.confirm_delete') } } do %>
+                <i class="bi bi-x"></i>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="comments-empty"><%= t('.no_comments') %></p>
+    <% end %>
+
+    <%# コメント投稿フォーム %>
+    <%= form_with model: [@group, @photo, @comment], class: "comment-form" do |f| %>
+      <div class="comment-input-row">
+        <%= f.text_field :body,
+              placeholder: t('.placeholder'),
+              class: "form-control comment-input",
+              maxlength: 200,
+              autocomplete: "off" %>
+        <%= f.submit t('.submit'), class: "btn btn-pashari comment-submit" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to t('.back'), group_photos_path(@group), class: "btn btn-pashari-outline w-100" %>
+  </div>
+</div>
