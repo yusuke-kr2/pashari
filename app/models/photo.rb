@@ -5,6 +5,7 @@ class Photo < ApplicationRecord
   belongs_to :group
 
   has_one_attached :image
+  has_many :photo_comments, dependent: :destroy
 
   scope :visible, -> { where("visible_at <= ?", Time.current) }
   scope :developing, -> { where("visible_at > ?", Time.current) }

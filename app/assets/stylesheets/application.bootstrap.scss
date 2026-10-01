@@ -369,6 +369,141 @@ body {
   }
 }
 
+// 写真詳細
+.photo-detail-image {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.photo-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 24px;
+
+  .photo-detail-download {
+    margin-left: auto;
+    color: #999;
+    font-size: 1rem;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+// コメント
+.comments-section {
+  margin-bottom: 24px;
+}
+
+.comments-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.comment-list {
+  margin-bottom: 16px;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid #F0ECE5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .comment-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #E8E2D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: #999;
+    flex-shrink: 0;
+  }
+
+  .comment-body {
+    flex: 1;
+    min-width: 0;
+
+    .comment-user {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #666;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .comment-text {
+      font-size: 0.85rem;
+      color: #333;
+      margin: 0;
+      word-break: break-word;
+    }
+  }
+
+  .comment-delete {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1rem;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover {
+      color: #999;
+    }
+  }
+}
+
+.comments-empty {
+  font-size: 0.85rem;
+  color: #bbb;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.comment-form {
+  .comment-input-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .comment-input {
+    flex: 1;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .comment-submit {
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+
 // Turboプログレスバー
 .turbo-progress-bar {
   background: $primary;

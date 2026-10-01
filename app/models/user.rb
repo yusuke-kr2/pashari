@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :groups, through: :group_memberships
   has_many :photos, dependent: :destroy
   has_many :push_subscriptions, dependent: :destroy
+  has_many :photo_comments, dependent: :destroy
 end

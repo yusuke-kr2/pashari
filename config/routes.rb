@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
   get "home/index"
   resources :groups, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do
-    resources :photos, only: [ :index, :new, :create ] do
+    resources :photos, only: [ :index, :show, :new, :create ] do
       get :download, on: :member
       get :download_all, on: :collection
+      resources :photo_comments, only: [ :create, :destroy ]
     end
     resource :membership, only: [ :destroy ], controller: "group_memberships"
   end
